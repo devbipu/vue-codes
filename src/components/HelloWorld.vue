@@ -1,7 +1,8 @@
 <template>
-	<div>
-		<input type="text" v-model="uname">
-		<button @click='$emit("close", uname)'>Close</button>
+	<div id="card">
+		<p v-for='name in names'>
+			<slot :fname='name.fname' :lname='name.lname'></slot>
+		</p>
 	</div>
 </template>
 
@@ -9,28 +10,22 @@
 <script>
 export default {
 	name: 'HelloWorld',
-	props: {
-		title: {
-			type: String,
-			required: true,
-			default: "This is default title"
-		},
-		postLike: Number,
-		isPublish: Boolean,
-	},
-	inheritAttrs: false,
-	emits: {
-		close: (uname) => {
-			if (uname == '') {
-				return false;
-			}else{
-				return true;
-			}
-		}
-	},
 	data() {
 		return {
-			uname: '',
+			names: [
+				{
+					fname: "Biplob",
+					lname: "Shaha",
+				},
+				{
+					fname: "Mr A",
+					lname: "Shaha",
+				},
+				{
+					fname: "Mr B",
+					lname: "Shaha",
+				}
+			]
 		}
 	}
 }
@@ -53,5 +48,12 @@ export default {
 	}
 	a {
 		color: #42b983;
+	}
+
+	#card{
+		max-width: 300px;
+		padding:  10px;
+		box-shadow: 4px 4px 20px #ddd;
+		margin: 20px;
 	}
 </style>
