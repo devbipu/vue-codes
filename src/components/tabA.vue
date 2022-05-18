@@ -12,6 +12,30 @@ export default {
 		return {
 			
 		}
+	},
+	beforeCreate() {
+		console.log('Child beforeCreate')
+	},
+	created() {
+		console.log('Child created')
+	},
+	beforeMount() {
+		console.log('Child beforeMount')
+	},
+	mounted() {
+		console.log('Child mounted')
+	},
+	beforeUpdate() {
+		console.log('Child beforeUpdate')
+	},
+	updated() {
+		console.log('Child Update')
+	},
+	beforeUnmount() {
+		console.log('Child beforeUnmount')
+	},
+	unmounted(){
+		console.log('Child unmouned')
 	}
 }
 </script>
